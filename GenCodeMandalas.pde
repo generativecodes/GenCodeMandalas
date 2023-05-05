@@ -5,8 +5,8 @@ import controlP5.*;
 
 boolean record;
 
-ControlP5 cp5;
-Accordion accordion;
+//ControlP5 cp5;
+//Accordion accordion;
 
 String seed = "";
 
@@ -21,7 +21,7 @@ boolean light, style, animate, animate_record;
 
 void setup() {
   fullScreen();
-  gui();
+  setupGui();
   background(0);
 
   anz = 3;
@@ -43,6 +43,7 @@ void draw() {
 
   updateTreeParameters();
   renderTree();
+  myTextfield.setText(generateMandalaHexCode());
 }
 
 void keyPressed() {
@@ -86,6 +87,7 @@ void handleAnimation() {
   if (animate) {
     triangle_angle = (triangle_angle + 1) % 4096;
     cp5.get("sli_triangle_angle").setValue(triangle_angle);
+    myTextfield.setText(generateMandalaHexCode());
   }
 }
 
